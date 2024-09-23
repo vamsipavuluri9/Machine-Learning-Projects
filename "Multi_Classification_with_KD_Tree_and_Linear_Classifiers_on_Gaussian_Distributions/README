@@ -1,30 +1,41 @@
-# Multi-Classification Using KD-Tree and Linear Classifiers
+Multi-Classification Using KD-Tree and Linear Classifiers
+------------------------------------------------------------
+------------------------------------------------------------
 
-## Overview
+1.Overview
+----------
 
-This project implements two classification techniques such as linear classification, and nearest neighbor classification  ( from KD-Tree construction) using data generated from Gaussian distributions. The project is structured around five tasks, each of which demonstrates a different aspect of data classification.
+In this project I implemented two classification techniques such as linear classification, and nearest neighbor classification  ( from KD-Tree construction) 
+using data generated from Gaussian distributions. The project is structured around five tasks, each of which demonstrates a different aspect of data classification.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Tasks
+--------
 
-## Tasks
+Task 1: KD-Tree
+---------------
 
-### Task 1: KD-Tree
+A custom KD-Tree data structure was designed and implemented in Python to handle 2D data and perform 1-nearest-neighbor searches. 
+The tree recursively splits data by the median of the current axis (alternating between x and y) to build a balanced structure. 
 
-A custom KD-Tree data structure was designed and implemented in Python to handle 2D data and perform 1-nearest-neighbor searches. The tree recursively splits data by the median of the current axis (alternating between x and y) to build a balanced structure. 
+- Implementation: Custom KD-Tree with recursive splitting.
+- Functionality: Supports 1-nearest-neighbor search for a given query point.
+- Usage: This tree is used in later tasks for classification based on nearest neighbors.
 
-- **Implementation**: Custom KD-Tree with recursive splitting.
-- **Functionality**: Supports 1-nearest-neighbor search for a given query point.
-- **Usage**: This tree is used in later tasks for classification based on nearest neighbors.
+Task 2: Constructing a Simple Data Set
+--------------------------------------
 
-### Task 2: Constructing a Simple Data Set
+In this task, 5,000 data points were drawn from two distinct but overlapping 2D multivariate Gaussian distributions, creating a dataset of 10,000 points in total. 
+The dataset was then split into training and test sets. 
 
-In this task, 5,000 data points were drawn from two distinct but overlapping 2D multivariate Gaussian distributions, creating a dataset of 10,000 points in total. The dataset was then split into training and test sets. 
+- Data Generation: Generated data using 2D Gaussian distributions with distinct means and covariances.
+- Partitioning: The data was randomly split into training and test sets.
+- Resulting Data: A matrix `X` of shape (10000, 2) and a label vector `y` of size 10,000 where each point is labeled either 0 (for the first distribution) 
+or 1 (for the second).
 
-- **Data Generation**: Generated data using 2D Gaussian distributions with distinct means and covariances.
-- **Partitioning**: The data was randomly split into training and test sets.
-- **Resulting Data**: A matrix `X` of shape (10000, 2) and a label vector `y` of size 10,000 where each point is labeled either 0 (for the first distribution) or 1 (for the second).
+Task 3: Linear Classifier
+-------------------------
 
-### Task 3: Linear Classifier
-
-Using the training data from Task 2, a **maximum-likelihood linear least squares** classifier was constructed to fit the data. The classifier used the equation:
+Using the training data from Task 2, a "maximum-likelihood linear least squares" classifier was constructed to fit the data. The classifier used the equation:
 
 \[
 \beta = (X^TX)^{-1}X^T y
@@ -36,35 +47,40 @@ Using the training data from Task 2, a **maximum-likelihood linear least squares
   - Training set elements from Class 0 and Class 1.
   - Correctly and incorrectly classified points from the test set for both classes.
 
-### Task 4: Nearest Neighbors Classification
+Task 4: Nearest Neighbors Classification
+----------------------------------------
 
 The same training and test data from Task 2 was used, but this time the classification was done using a **KD-Tree-based nearest neighbor** search.
 
-- **KD-Tree**: The training data was organized into a KD-Tree.
-- **Classification**: For each point in the test set, the nearest neighbor from the training set was found, and the class label of the nearest neighbor was assigned to the test point.
-- **Accuracy Calculation**: Classification accuracy was calculated and compared to the linear classifier.
-- **Visualization**: Similar plots were produced, showing correctly and incorrectly classified test points.
+- KD-Tree: The training data was organized into a KD-Tree.
+- Classification: For each point in the test set, the nearest neighbor from the training set was found, and the class label of the nearest neighbor was 
+  assigned to the test point.
+- Accuracy Calculation: Classification accuracy was calculated and compared to the linear classifier.
+- Visualization: Similar plots were produced, showing correctly and incorrectly classified test points.
 
-### Task 5: Increasing Complexity
+Task 5: Increasing Complexity
+-----------------------------
 
-A new dataset was generated for this task, consisting of 10,000 points drawn from **ten different overlapping Gaussian distributions**. Five of the distributions were assigned to Class 0 and five to Class 1, making the classification problem more complex.
+A new dataset was generated for this task, consisting of 10,000 points drawn from "ten different overlapping Gaussian distributions". Five of the distributions were 
+assigned to Class 0 and five to Class 1, making the classification problem more complex.
 
-- **Data Generation**: Generated 1,000 samples each from ten overlapping Gaussian distributions.
-- **Classification**: Both the linear classifier and KD-Tree-based nearest neighbor classifier were applied to this more complex dataset.
-- **Accuracy**: The classification accuracy for both methods was calculated and compared.
-- **Visualization**: A plot was generated showing the classification results for both methods, with correct and incorrect classifications highlighted.
+- Data Generation: Generated 1,000 samples each from ten overlapping Gaussian distributions.
+- Classification: Both the linear classifier and KD-Tree-based nearest neighbor classifier were applied to this more complex dataset.
+- Accuracy: The classification accuracy for both methods was calculated and compared.
+- Visualization: A plot was generated showing the classification results for both methods, with correct and incorrect classifications highlighted.
 
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3. Instructions to Run
+----------------------
 
-## Instructions to Run
-
-1. **Clone the repository**:
+1. Clone the repository:
    ```bash
    git clone <repository-url>
    cd <repository-folder>
    ```
 
-2. **Run the Python script**:
+2. Run the Python script:
    - Ensure you have the required libraries installed:
      ```bash
      pip install numpy matplotlib
@@ -74,7 +90,7 @@ A new dataset was generated for this task, consisting of 10,000 points drawn fro
      python main.py
      ```
 
-3. **View the visualizations**:
+3. View the visualizations:
    - Several plots will be generated, showing data distributions, training/test splits, and classification results.
 
 ## Requirements
@@ -85,16 +101,17 @@ A new dataset was generated for this task, consisting of 10,000 points drawn fro
 
 ## Results
 
-- **Task 1**: Successfully implemented a KD-Tree that supports efficient 1-nearest-neighbor search.
-- **Task 2**: Generated data from two overlapping Gaussian distributions, split into training and test sets.
-- **Task 3**: Achieved high accuracy using a linear classifier on the simple dataset.
-- **Task 4**: Implemented nearest neighbor classification using the KD-Tree, with comparable accuracy to the linear classifier.
-- **Task 5**: Successfully classified more complex data generated from multiple overlapping Gaussian distributions using both classifiers.
+- Task 1: Successfully implemented a KD-Tree that supports efficient 1-nearest-neighbor search.
+- Task 2: Generated data from two overlapping Gaussian distributions, split into training and test sets.
+- Task 3: Achieved high accuracy using a linear classifier on the simple dataset.
+- Task 4: Implemented nearest neighbor classification using the KD-Tree, with comparable accuracy to the linear classifier.
+- Task 5: Successfully classified more complex data generated from multiple overlapping Gaussian distributions using both classifiers.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4. Future Improvements
+-----------------------
 
-## Future Improvements
+- Multi-dimensional KD-Tree: Expand the KD-Tree to support higher-dimensional data.
+- Different Classifiers: Implement classifiers like Support Vector Machines (SVM) and Random Forest to compare performance on complex datasets.
+- Hyperparameter Tuning: Explore cross-validation techniques to improve model performance, especially on more complex data.
 
-- **Multi-dimensional KD-Tree**: Expand the KD-Tree to support higher-dimensional data.
-- **Different Classifiers**: Implement classifiers like Support Vector Machines (SVM) and Random Forest to compare performance on complex datasets.
-- **Hyperparameter Tuning**: Explore cross-validation techniques to improve model performance, especially on more complex data.
 
----
