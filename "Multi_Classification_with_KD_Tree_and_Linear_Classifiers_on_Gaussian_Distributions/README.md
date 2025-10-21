@@ -44,8 +44,7 @@ $$
 \beta = (X^T X)^{-1} X^T y
 $$
 
-- **Classification:** Points were classified based on whether  
-x<sup>T</sup> β &gt; 0.5 (Class&nbsp;1) or ≤&nbsp;0.5 (Class&nbsp;0).
+- **Classification:** Points were classified based on whether x<sup>T</sup> β &gt; 0.5 (Class&nbsp;1) or ≤&nbsp;0.5 (Class&nbsp;0).
 - **Accuracy Calculation:** Computed by comparing true and predicted labels on the test set  
 - **Visualization:** Plots included:
   - Training set points for Class 0 and Class 1  
@@ -121,6 +120,7 @@ Five of the distributions were assigned to **Class 0** and five to **Class 1**, 
 - **Multi-dimensional KD-Tree:** Expand the KD-Tree to support higher-dimensional data  
 - **Different Classifiers:** Implement classifiers like **Support Vector Machines (SVM)** and **Random Forest** to compare performance on complex datasets  
 - **Hyperparameter Tuning:** Explore **cross-validation** techniques to improve model performance, especially on more complex data  
+
 
 
 
