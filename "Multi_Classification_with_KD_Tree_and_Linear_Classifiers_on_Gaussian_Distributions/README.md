@@ -40,11 +40,12 @@ The dataset was then split into **training** and **test** sets.
 
 Using the training data from Task 2, a **maximum-likelihood linear least squares** classifier was constructed using the equation:
 
-\[
+$$
 \beta = (X^T X)^{-1} X^T y
-\]
+$$
 
-- **Classification:** Points were classified based on whether \( x^T \beta \) > 0.5 (Class 1) or ≤ 0.5 (Class 0)  
+- **Classification:** Points were classified based on whether  
+$ x^T \beta > 0.5 $ (Class 1) or $ \le 0.5 $ (Class 0).
 - **Accuracy Calculation:** Computed by comparing true and predicted labels on the test set  
 - **Visualization:** Plots included:
   - Training set points for Class 0 and Class 1  
@@ -120,4 +121,5 @@ Five of the distributions were assigned to **Class 0** and five to **Class 1**, 
 - **Multi-dimensional KD-Tree:** Expand the KD-Tree to support higher-dimensional data  
 - **Different Classifiers:** Implement classifiers like **Support Vector Machines (SVM)** and **Random Forest** to compare performance on complex datasets  
 - **Hyperparameter Tuning:** Explore **cross-validation** techniques to improve model performance, especially on more complex data  
+
 
